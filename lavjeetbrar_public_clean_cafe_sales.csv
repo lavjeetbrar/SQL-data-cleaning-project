@@ -1,0 +1,21 @@
+Transaction ID,quantity,price_per_unit,total_amount_spent,transaction_date,payment_method,location,item
+TXN_2377708,1,1,1,2023-01-03,Unknown,Takeaway,Cookie
+TXN_7355326,1,1,1,2023-01-03,Unknown,Unknown,Cookie
+TXN_8661276,1,1,1,2023-01-07,Unknown,In-Store,Cookie
+TXN_1193551,1,1,1,2023-01-07,Unknown,Takeaway,Cookie
+TXN_4177717,1,1,1,2023-01-07,Unknown,Unknown,Cookie
+TXN_7855761,1,1,1,2023-01-10,Cash,In-Store,Cookie
+TXN_5124080,1,1,1,2023-01-14,Credit Card,In-Store,Cookie
+TXN_6851735,1,1,1,2023-01-17,Unknown,Unknown,Unknown
+TXN_5975573,1,1,1,2023-01-20,Unknown,Takeaway,Unknown
+TXN_5944318,1,1,1,2023-01-23,Cash,Unknown,Cookie
+TXN_2316206,1,1,1,2023-01-23,Credit Card,In-Store,Cookie
+TXN_7982985,1,1,1,2023-01-27,Credit Card,Unknown,Cookie
+TXN_2508266,1,1,1,2023-01-28,Unknown,Unknown,Cookie
+TXN_2747156,1,1,1,2023-01-29,Unknown,In-Store,Cookie
+TXN_8134280,1,1,1,2023-01-29,Unknown,Takeaway,Cookie
+TXN_7002929,1,1,1,2023-01-30,Unknown,In-Store,Cookie
+TXN_6873127,1,1,1,2023-02-02,Unknown,In-Store,Cookie
+TXN_6200423,1,1,1,2023-02-03,Unknown,In-Store,Cookie
+TXN_1927431,1,1,1,2023-02-07,Credit Card,In-Store,Cookie
+TXN_3769567,1,1,1,2023-02-10,Unknown,In-Store,Unknown
