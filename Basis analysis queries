@@ -1,0 +1,27 @@
+-- Top selling items
+
+SELECT item, SUM(quantity) AS total_sold
+FROM clean_cafe_sales
+GROUP BY item
+ORDER BY total_sold DESC;
+
+-- Monthly revenue
+
+SELECT DATE_TRUNC('month', transaction_date) AS month,
+       SUM(total_amount_spent) AS revenue
+FROM clean_cafe_sales
+GROUP BY month
+ORDER BY month;
+
+-- Payment method breakdown
+
+SELECT payment_method, COUNT(*)
+FROM clean_cafe_sales
+GROUP BY payment_method;
+
+-- Daily transactions
+
+SELECT transaction_date, COUNT(*)
+FROM clean_cafe_sales
+GROUP BY transaction_date
+ORDER BY transaction_date;
