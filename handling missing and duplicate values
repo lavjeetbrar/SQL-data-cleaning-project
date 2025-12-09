@@ -1,0 +1,30 @@
+-- Missing value summary
+
+SELECT 
+    COUNT(*) FILTER (WHERE quantity IS NULL) AS missing_quantity,
+    COUNT(*) FILTER (WHERE price_per_unit IS NULL) AS missing_price,
+    COUNT(*) FILTER (WHERE total_amount_spent IS NULL) AS missing_total,
+    COUNT(*) FILTER (WHERE transaction_date IS NULL) AS missing_date
+FROM clean_cafe_sales;
+
+-- Check numeric outliers
+
+SELECT *
+FROM clean_cafe_sales
+WHERE quantity < 0
+   OR price_per_unit < 0
+   OR total_amount_spent < 0;
+
+-- Check date ranges
+
+SELECT 
+    MIN(transaction_date) AS earliest_date,
+    MAX(transaction_date) AS latest_date
+FROM clean_cafe_sales;
+
+-- Check duplicates
+
+SELECT transaction_id, COUNT(*)
+FROM clean_cafe_sales
+GROUP BY transaction_id
+HAVING COUNT(*) > 1;
