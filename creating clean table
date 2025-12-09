@@ -1,0 +1,45 @@
+-- 1. Create clean table with correct column types
+
+CREATE TABLE clean_cafe_sales (
+    transaction_id TEXT PRIMARY KEY,
+    item TEXT,
+    quantity INTEGER,
+    price_per_unit NUMERIC(10,2),
+    total_amount_spent NUMERIC(10,2),
+    payment_method TEXT,
+    location TEXT,
+    transaction_date DATE
+);
+
+-- 2. Insert clean rows only
+
+INSERT INTO clean_cafe_sales (
+    transaction_id,
+    item,
+    quantity,
+    price_per_unit,
+    total_amount_spent,
+    payment_method,
+    location,
+    transaction_date
+)
+SELECT
+    transaction_id,
+    INITCAP(TRIM(item)) AS item,
+    NULLIF(quantity_ren, '')::INT AS quantity,
+    NULLIF(price_per_unit, '')::NUMERIC(10,2) AS price_per_unit,
+    NULLIF(total_amount_spent, '')::NUMERIC(10,2) AS total_amount_spent,
+    UPPER(TRIM(payment_method)) AS payment_method,
+    REGEXP_REPLACE(location, '\s+', ' ', 'g') AS location,
+    CASE 
+        WHEN transaction_date ~ '^\d{4}-\d{2}-\d{2}$'
+        THEN transaction_date::DATE
+        ELSE NULL
+    END AS transaction_date
+FROM dirty_cafe_sales
+WHERE
+    -- Keep only fully valid rows
+    quantity_ren ~ '^\d+$'
+    AND price_per_unit ~ '^[0-9.]+$'
+    AND total_amount_spent ~ '^[0-9.]+$'
+    AND transaction_date ~ '^\d{4}-\d{2}-\d{2}$';
